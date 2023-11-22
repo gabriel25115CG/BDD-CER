@@ -2,6 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prenom = $_POST["prenom"];
     $nom = $_POST["nom"];
+    $adresse = $_POST["adresse"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirmPassword = $_POST["confirmPassword"];
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $sql = "INSERT INTO connexion (prenom, nom, email, mot_de_passe) VALUES (?, ?, ?, ?)";
             $stmt= $conn->prepare($sql);
-            $stmt->execute([$prenom, $nom, $email, $password]);
+            $stmt->execute([$prenom, $nom, $adresse, $email, $password]);
 
             echo "Nouveau compte créé avec succès. Vous serez redirigé vers la page de connexion dans 4 secondes.";
             echo '<meta http-equiv="refresh" content="4;url=connexion.php" />';

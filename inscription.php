@@ -48,6 +48,10 @@
                 <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom">
             </div>
             <div class="form-group">
+                <label for="Adresse">Adresse</label>
+                <input type="adresse" class="form-control" id="adresse" name="adresse" placeholder="Entrez votre adresse">
+            </div>
+            <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
             </div>
