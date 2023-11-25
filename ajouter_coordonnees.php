@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 
@@ -53,7 +54,7 @@ session_start();
 <body class="bg-dark text-light fixed-top">
 
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <img src="images/planete-terre.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 40px;">
+    <img src="../images/planete-terre.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 40px;">
     <a class="navbar-brand" href="#">Communauté d'Énergie Renouvelable</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
@@ -62,7 +63,7 @@ session_start();
                     Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="declarer_site.php">Déclarer un site de production</a>
+                <a class="dropdown-item" href="declarer_site.php">Déclarer un site de production</a>
                     <a class="dropdown-item" href="consulter_factures.php">Consulter mes factures</a>
                     <a class="dropdown-item" href="conso_temps_reel.php">Consommation en temps réel</a>
                     <a class="dropdown-item" href="souscrire_contrat.php">Souscrire à un contrat</a>
@@ -75,17 +76,24 @@ session_start();
                 <a class="btn btn-primary ml-2" href="profil.php">Profil</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-danger ml-2" href="script/deconnexion.php">Déconnexion</a>
+                <a class="btn btn-danger ml-2" href="/script/deconnexion.php">Déconnexion</a>
             </li>
         </ul>
     </div>
 </nav>
-    <section class="container mt-4">
-        <h1 class="display-4 text-center">Bienvenue, <?php echo $_SESSION['user']['prenom']; ?>!</h1>
-    </section>
-    <section class="container mt-4">
-        <p>Bienvenue sur notre plateforme de gestion énergétique avancée. Ici, vous pouvez déclarer vos sites de production et batteries, consulter vos factures et suivre votre consommation en temps réel. Simplifiez la gestion de votre infrastructure énergétique dès aujourd'hui.</p>
-    </section>
+<section class="container mt-4">
+    <h1>Ajouter des coordonnées bancaires</h1>
+    <form action="script/script_coordonnees.php" method="post">
+        <div class="form-group">
+            <label for="numero_carte">Numéro de carte :</label>
+            <input type="text" id="numero_carte" name="numero_carte" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+</section>
+
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -96,4 +104,16 @@ session_start();
     </div>
 </footer>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
 

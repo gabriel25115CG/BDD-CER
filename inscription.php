@@ -38,7 +38,7 @@
 <br>
     <section class="container mt-4">
         <h1 class="display-4 text-center">Inscription</h1>
-        <form class="mt-4" action="/var/www/html/script/script_connexion.php" method="post">
+        <form class="mt-4" action="script/script_inscription.php" method="post">
             <div class="form-group">
                 <label for="prenom">Prénom</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom">
@@ -54,6 +54,10 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group">
+                <label for="Subvention">Bénéficiez-vous d'une subvention ?</label>
+                <input type="checkbox" name="Subvention" id="Subvention" class="form-control">
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe</label>

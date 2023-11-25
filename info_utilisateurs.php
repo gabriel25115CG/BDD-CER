@@ -1,7 +1,18 @@
 <?php
 session_start();
-?>
 
+// Vérifier si l'utilisateur est connecté et a le statut d'administrateur
+if (isset($_SESSION['user']) && $_SESSION['user']['Email'] == "admin@gmail.com") {
+    // L'utilisateur est un administrateur, continuer l'exécution de la page
+
+    // ... le reste du code de la page admin.php ...
+
+} else {
+    // Rediriger vers une page d'erreur ou une autre page autorisée
+    header("Location: ../index_authentifier.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -55,7 +66,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <button class="btn btn-success ml-2" onclick="window.location.href='index_authentifier.php'">Accueil</button>
+                <button class="btn btn-success ml-2" onclick="window.location.href='index.php'">Accueil</button>
             </li>
         </ul>
     </div>
@@ -64,18 +75,26 @@ session_start();
 <br>
 <br>
 <br>
-
-    <section class="container mt-4">
-        <h1>Consulter Facture</h1>
-        <p>Entrez le numéro de votre facture pour la consulter :</p>
-        <form action="chemin/vers/votre/script.php" method="post">
-            <div class="form-group">
-                <label for="facture">Numéro de facture :</label>
-                <input type="text" id="facture" name="facture" class="form-control">
-            </div>
-            <input type="submit" value="Consulter" class="btn btn-custom">
-        </form>
-    </section>
+<section class="container mt-4">
+    <h1>Consulter les informations des utilisateurs</h1>
+    <p>Sélectionnez le type de recherche et entrez la valeur correspondante :</p>
+    <form action="script/script_consultation.php" method="post">
+        <div class="form-group">
+            <label for="type">Type de recherche :</label>
+            <select id="type" name="type" class="form-control">
+                <option value="prenom">Prénom</option>
+                <option value="nom">Nom</option>
+                <option value="ID_Membre">ID</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="valeur">Valeur :</label>
+            <input type="text" id="valeur" name="valeur" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+        <button type="submit" name="type" value="all" class="btn btn-primary">Consulter tous les membres</button>
+    </form>
+</section>
 
     <footer class="footer">
     <footer class="footer">

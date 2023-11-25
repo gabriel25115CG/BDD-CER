@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+// Vérifier si l'utilisateur est connecté et a le statut d'administrateur
+if (isset($_SESSION['user']) && $_SESSION['user']['Email'] == "admin@gmail.com") {
+    // L'utilisateur est un administrateur, continuer l'exécution de la page
+
+    // ... le reste du code de la page admin.php ...
+
+} else {
+    // Rediriger vers une page d'erreur ou une autre page autorisée
+    header("Location: ../index_authentifier.php");
+    exit();
+}
 ?>
 
 
@@ -53,7 +65,7 @@ session_start();
 <body class="bg-dark text-light fixed-top">
 
 <nav class="navbar navbar-expand-lg navbar-custom">
-    <img src="images/planete-terre.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 40px;">
+    <img src="../images/planete-terre.png" alt="Logo" style="width: 40px; height: 40px; margin-right: 40px;">
     <a class="navbar-brand" href="#">Communauté d'Énergie Renouvelable</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
@@ -62,11 +74,9 @@ session_start();
                     Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="declarer_site.php">Déclarer un site de production</a>
-                    <a class="dropdown-item" href="consulter_factures.php">Consulter mes factures</a>
-                    <a class="dropdown-item" href="conso_temps_reel.php">Consommation en temps réel</a>
-                    <a class="dropdown-item" href="souscrire_contrat.php">Souscrire à un contrat</a>
-                    <a class="dropdown-item" href="ajouter_coordonnees.php">Ajouter coordonnées bancaires</a>
+                <a class="dropdown-item" href="supprimer_site.php">Supprimer un site de production</a>
+                    <a class="dropdown-item" href="supprimer_factures.php">Supprimer une factures</a>
+                    <a class="dropdown-item" href="info_utilisateurs.php">Voir infos utilisateurs</a>
                 </div>
             </li>
         </ul>
@@ -75,17 +85,38 @@ session_start();
                 <a class="btn btn-primary ml-2" href="profil.php">Profil</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-danger ml-2" href="script/deconnexion.php">Déconnexion</a>
+                <a class="btn btn-danger ml-2" href="/script/deconnexion.php">Déconnexion</a>
             </li>
         </ul>
     </div>
 </nav>
-    <section class="container mt-4">
-        <h1 class="display-4 text-center">Bienvenue, <?php echo $_SESSION['user']['prenom']; ?>!</h1>
-    </section>
-    <section class="container mt-4">
-        <p>Bienvenue sur notre plateforme de gestion énergétique avancée. Ici, vous pouvez déclarer vos sites de production et batteries, consulter vos factures et suivre votre consommation en temps réel. Simplifiez la gestion de votre infrastructure énergétique dès aujourd'hui.</p>
-    </section>
+
+<?php
+session_start();
+
+if (isset($_SESSION['ID_Membre'], $_POST['numero_carte'])) {
+    $ID_Membre = $_SESSION['ID_Membre'];
+    $numero_carte = $_POST['numero_carte'];
+
+    try {
+        // Connectez-vous à la base de données
+        $conn = new PDO("mysql:host=10.20.20.40;dbname=V_ONE", "gabriel", "gabriel");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Préparez et exécutez la requête SQL pour insérer les données de paiement
+        $sql = "INSERT INTO donnees_paiement (ID_Membre, Type_paiement, Numero_Carte, Date_paiement) VALUES (:ID_Membre, 'Carte', :numero_carte, NOW())";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute(['ID_Membre' => $ID_Membre, 'numero_carte' => $numero_carte]);
+
+        echo "Les coordonnées bancaires ont été ajoutées avec succès.";
+    } catch(PDOException $e) {
+        echo "Erreur : " . $e->getMessage();
+    }
+} else {
+    echo "Erreur : les données du formulaire sont incomplètes ou vous n'êtes pas connecté.";
+}
+?>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -96,4 +127,12 @@ session_start();
     </div>
 </footer>
 </html>
+
+
+
+
+
+
+
+
 
