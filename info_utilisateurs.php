@@ -77,23 +77,10 @@ if (isset($_SESSION['user']) && $_SESSION['user']['Email'] == "admin@gmail.com")
 <br>
 <section class="container mt-4">
     <h1>Consulter les informations des utilisateurs</h1>
-    <p>Sélectionnez le type de recherche et entrez la valeur correspondante :</p>
-    <form action="script/script_consultation.php" method="post">
-        <div class="form-group">
-            <label for="type">Type de recherche :</label>
-            <select id="type" name="type" class="form-control">
-                <option value="prenom">Prénom</option>
-                <option value="nom">Nom</option>
-                <option value="ID_Membre">ID</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="valeur">Valeur :</label>
-            <input type="text" id="valeur" name="valeur" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Rechercher</button>
-        <button type="submit" name="type" value="all" class="btn btn-primary">Consulter tous les membres</button>
-    </form>
+    
+    <div class="table-responsive" style="height: 500px; overflow-y: scroll;">
+        <?php include 'script/script_consultation.php'; ?>
+    </div>
 </section>
 
     <footer class="footer">
