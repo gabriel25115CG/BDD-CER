@@ -60,7 +60,7 @@ try {
         echo "<input type='hidden' name='ID_membre' value='" . $row['ID_membre'] . "'>";
         echo "<button type='submit' class='btn btn-danger'>Supprimer</button>";
         echo "</form>";
-        echo "</td>";
+        echo "</td>"; // Ajoutez cette ligne
         echo "</tr>";
     }
 
