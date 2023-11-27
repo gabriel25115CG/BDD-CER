@@ -68,18 +68,33 @@
 <br>
 <br>
 
-    <div class="container mt-5">
-        <h1>Déclarer un site de production</h1>
-        <form>
-            <div class="form-group">
-                <label for="siteName">Nom du site</label>
-                <input type="text" class="form-control" id="siteName" placeholder="Entrez le nom du site">
-            </div>
-            <!-- Ajoutez d'autres champs de formulaire ici -->
-            <button type="submit" class="btn btn-primary text-white">Déclarer</button>
-        </form>
-    </div>
+<div class="container mt-5">
+    <h1>Déclarer un site de production</h1>
+    <form action="script/script_declarersite.php" method="post">
+        <div class="form-group">
+            <label for="siteName">Nom du site</label>
+            <input type="text" class="form-control" id="Donnees_Geographique" name="Donnees_Geographique" placeholder="Entrez le nom du site">
+        </div>
+        <div class="form-group">
+            <label for="type_site">Type de site de production :</label>
+            <select id="type_site" name="ID_Type_Source">
+                <option value="1">Energie solaire</option>
+                <option value="2">Energie éolienne</option>
+                <option value="3">Biomasse</option>
+                <option value="4">Hydroelectrique</option>
+                <option value="5">Thermique</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="capacite_production">Capacité de production :</label>
+            <input type="number" id="capacite_production" name="Capacite_Production" min="0" step="0.1" placeholder="Entrez la capacité de production">
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Déclarer</button>
+    </form>
+</div>
 
+  
     <footer class="footer mt-auto py-3 bg-dark text-white">
         <div class="container text-center">
             <span>Copyright &copy; 2022 Mon Site</span>
