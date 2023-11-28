@@ -85,13 +85,35 @@ session_start();
     <h1>Ajouter des coordonnées bancaires</h1>
     <form action="script/script_coordonnees.php" method="post">
         <div class="form-group">
+            <label for="id_membre">ID Membre :</label>
+            <input type="text" id="id_membre" name="id_membre" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="type_paiement">Type de Paiement :</label>
+            <select id="type_paiement" name="type_paiement" class="form-control" required>
+                <option value="">Sélectionnez le type de paiement</option>
+                <option value="carte">Carte</option>
+                <option value="espece">Espèce</option>
+                <option value="cheque">Chèque</option>
+            </select>
+        </div>
+        <div class="form-group" id="numero_carte_div" style="display: none;">
             <label for="numero_carte">Numéro de carte :</label>
-            <input type="text" id="numero_carte" name="numero_carte" class="form-control" required>
+            <input type="text" id="numero_carte" name="numero_carte" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
 </section>
 
+<script>
+    document.getElementById('type_paiement').addEventListener('change', function() {
+        if (this.value === 'carte') {
+            document.getElementById('numero_carte_div').style.display = 'block';
+        } else {
+            document.getElementById('numero_carte_div').style.display = 'none';
+        }
+    });
+</script>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

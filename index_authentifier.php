@@ -64,7 +64,6 @@ session_start();
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="declarer_site.php">Déclarer un site de production</a>
                     <a class="dropdown-item" href="consulter_factures.php">Consulter mes factures</a>
-                    <a class="dropdown-item" href="conso_temps_reel.php">Consommation en temps réel</a>
                     <a class="dropdown-item" href="souscrire_contrat.php">Souscrire à un contrat</a>
                     <a class="dropdown-item" href="ajouter_coordonnees.php">Ajouter coordonnées bancaires</a>
                 </div>

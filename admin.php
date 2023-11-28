@@ -86,8 +86,8 @@ if (isset($_SESSION['user']) && $_SESSION['user']['Email'] == "admin@gmail.com")
                     Menu
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="supprimer_site.php">Supprimer un site de production</a>
-                    <a class="dropdown-item" href="supprimer_factures.php">Supprimer une factures</a>
+                    <a class="dropdown-item" href="supprimer_site.php">Consulter/Supprimer un site de production</a>
+                    <a class="dropdown-item" href="consulter_facture_admin.php">Consulter/Supprimer une factures</a>
                     <a class="dropdown-item" href="info_utilisateurs.php">Voir infos utilisateurs</a>
                 </div>
             </li>

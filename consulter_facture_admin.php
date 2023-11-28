@@ -1,6 +1,17 @@
 <?php
 session_start();
 
+// Vérifier si l'utilisateur est connecté et a le statut d'administrateur
+if (isset($_SESSION['user']) && $_SESSION['user']['Email'] == "admin@gmail.com") {
+    // L'utilisateur est un administrateur, continuer l'exécution de la page
+
+    // ... le reste du code de la page admin.php ...
+
+} else {
+    // Rediriger vers une page d'erreur ou une autre page autorisée
+    header("Location: ../index_authentifier.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -66,13 +77,10 @@ session_start();
 <br>
 <section class="container mt-4">
     <h1>Consulter les factures</h1>
-    <form method="post" action="script/script_consultation_facture.php">
-        <div class="form-group">
-            <label for="ID_Facture">Entrez votre numéro de facture :</label>
-            <input type="text" class="form-control" id="id_facture" name="ID_Facture" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Soumettre</button>
-    </form>
+    
+    <div class="table-responsive" style="height: 500px; overflow-y: scroll;">
+        <?php include 'script/script_consultation_facture.php'; ?>
+    </div>
 </section>
 
     <footer class="footer">

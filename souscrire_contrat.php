@@ -1,3 +1,9 @@
+<php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,38 +14,34 @@
 </head>
 <body class="bg-dark text-white">
     <div class="container mt-4">
-        <h1 class="text-center">Souscription Contrat</h1>
-        <form action="souscription_contrat.php" method="post">
-            <div class="form-group">
-                <label for="nom">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" required>
-            </div>
-            <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input type="text" class="form-control" id="prenom" name="prenom" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="telephone">Numéro de téléphone</label>
-                <input type="tel" class="form-control" id="telephone" name="telephone" required>
-            </div>
-            <div class="form-group">
-                <label for="site">Site de rattachement</label>
-                <input type="text" class="form-control" id="site" name="site" required>
-            </div>
-            <div class="form-group">
-                <label for="date">Date de souscription</label>
-                <input type="date" class="form-control" id="date" name="date" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Souscrire</button>
-                <a href="index_authentifier.php" class="btn btn-secondary ml-2">Retour</a>
-            </div>
-        </form>
+    <h1 class="text-center">Souscription Contrat</h1>
+<form action="script/script_ajouter_contrat.php" method="post">
+   
+    <div class="form-group">
+        <label for="id_membre">ID Membre</label>
+        <input type="text" class="form-control" id="id_membre" name="id_membre" required>
     </div>
+    <div class="form-group">
+    <label for="type_contrat">Type de Contrat</label>
+    <select class="form-control" id="type_contrat" name="type_contrat" required>
+        <option value="">Sélectionnez le type de contrat</option>
+        <option value="mensuel">Mensuel</option>
+        <option value="annuel">Annuel</option>
+    </select>
+</div>
+    <div class="form-group">
+        <label for="date_debut_contrat">Date de début du contrat</label>
+        <input type="date" class="form-control" id="date_debut_contrat" name="date_debut_contrat" required>
+    </div>
+    <div class="form-group">
+        <label for="date_fin_contrat">Date de fin du contrat</label>
+        <input type="date" class="form-control" id="date_fin_contrat" name="date_fin_contrat" required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Souscrire</button>
+        <a href="index_authentifier.php" class="btn btn-secondary ml-2">Retour</a>
+    </div>
+</form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
