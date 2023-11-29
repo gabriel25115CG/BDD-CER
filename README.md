@@ -21,6 +21,13 @@ Cost Reduction: Optimizes resource utilization by facilitating the sharing and e
 
 Collaborative Innovation: Stimulates innovation by empowering members to propose, develop, and implement renewable energy-related projects collaboratively.
 
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+La base se trouve dans le dossier SCRIPT / SQL  PROJETBDD.sql
+ATTENTION : La base de données est hébergée sur un serveur différent que le serveur web. Dans les requêtes SQL la cible pour se connecter n’est pas localhost mais 10.20.20.40 (Dans les script PHP du site) il peut être nécessaire de remplacer ces conditions pour une complète utilisation.
+
+
 In conclusion, RECMS represents a significant step towards intelligent community management of renewable energy, fostering sustainability, collaboration, and innovation within the community.
 
 
